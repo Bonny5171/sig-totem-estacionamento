@@ -1,0 +1,1 @@
+export { checkServiceAlive } from './acessoService';
