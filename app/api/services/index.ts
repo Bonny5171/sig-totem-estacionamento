@@ -1,0 +1,1 @@
+export { checkServiceAlive, checkAuth, listMenu } from './acessoService';

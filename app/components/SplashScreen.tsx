@@ -1,12 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { checkServiceAlive, checkAuth, listMenu } from "../app/api/services/acessoService";
-import { useAuth } from "../contexts/AuthContext";
+import { checkServiceAlive, checkAuth, listMenu } from "../api/services/acessoService";
 import Image from "next/image";
 
-export default function SplashScreen({
-  children,
 export default function SplashScreen({
   children,
 }: {
@@ -14,7 +11,6 @@ export default function SplashScreen({
 }) {
   const [isChecking, setIsChecking] = useState(true);
   const [serviceError, setServiceError] = useState(false);
-  const { setChave, setIsAuthenticated } = useAuth();
 
   useEffect(() => {
     const checkConnection = async () => {
@@ -39,38 +35,17 @@ export default function SplashScreen({
 
       // Now call the service check
       const serviceAlive = await checkServiceAlive();
-      if (!serviceAlive) {
+      const serviceAuth = await checkAuth();
+      const serviceListMenu = await listMenu(serviceAuth || '');
+
+      if (!serviceAlive && !serviceAuth) {
         setServiceError(true);
-        setIsChecking(false);
-        return;
       }
-
-      // Call authentication to get CHAVE
-      const chave = await checkAuth();
-      if (!chave) {
-        setServiceError(true);
-        setIsChecking(false);
-        return;
-      }
-
-      // Save CHAVE in context
-      setChave(chave);
-
-      // Call listMenu with the obtained CHAVE
-      const menuSuccess = await listMenu(chave);
-      if (!menuSuccess) {
-        setServiceError(true);
-        setIsChecking(false);
-        return;
-      }
-
-      // Set authenticated state
-      setIsAuthenticated(true);
       setIsChecking(false);
     };
 
     checkConnection();
-  }, [setChave, setIsAuthenticated]);
+  }, []);
 
   if (isChecking) {
     return (

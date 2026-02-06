@@ -79,7 +79,7 @@ export default function HomeScreen() {
             >
               <Image
                 src={`/icons/${option.id}.png`} // coloque seus ícones aqui
-                // alt="Icones de Menu"
+                alt="Icones de Menu"
                 width={48}
                 height={48}
                 className="mb-3"
