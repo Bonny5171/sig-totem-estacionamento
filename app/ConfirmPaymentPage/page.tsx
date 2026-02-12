@@ -67,12 +67,12 @@ export default function ConfirmPaymentPage() {
 
           <div className="grid grid-cols-3 gap-3 mt-6">
             <button className="h-12 rounded-lg bg-background-brand text-white font-semibold text-base hover:bg-pink-700 transition flex items-center justify-center w-full">
-              <Icon
+              {/* <Icon
                 name={"faCreditCard"}
                 className="text-white group-hover:text-white mr-2"
                 variant="fal"
                 size={20}
-              />
+              /> */}
               Cartão
             </button>
 

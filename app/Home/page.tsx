@@ -10,16 +10,30 @@ export default function HomeScreen() {
   const { listMenu } = useAuth();
 
   const handleNavigation = (route: string) => {
-  if (route === "PAGAR_ESTACIONAMENTO") {
-    return router.push("/PayForParking");
-  }
-  if (route === "PAGAMENTO_SEM_TICKET") {
-    return router.push("/DigitTicketPage");
-  }
+    if (route === "PAGAR_ESTACIONAMENTO") {
+      return router.push("/PayForParking");
+    }
+    if (route === "PAGAMENTO_SEM_TICKET") {
+      return router.push("/DigitTicketPage");
+    }
 
-  router.push(route);
-};
+    router.push(route);
+  };
 
+  const handlePIX = async () => {
+    debugger
+
+    const resp = await window.electronAPI.pix.create({
+      amount: 3.50,
+      ticketId: "19062408265501",
+      expiresInSec: 300, // 5 min
+    });
+
+    if (!resp.ok) {
+      alert(resp.message);
+      return;
+    }
+  }
 
   return (
   <div className="min-h-screen flex flex-col bg-background-isChecking">
@@ -48,6 +62,29 @@ export default function HomeScreen() {
       </div>
 
       <div className="grid grid-cols-3 gap-6 mt-8">
+
+        <button
+            key={123456}
+            onClick={() => handlePIX()}
+            className="
+              group flex flex-col items-center justify-center
+              bg-white rounded-2xl shadow-md
+              hover:shadow-lg hover:bg-background-brand hover:text-white
+              active:scale-95 transition p-6 h-32
+            "
+          >
+            {/* <Icon
+              name={option.ICONE_PATH}
+              className="text-typography-gray group-hover:text-white mb-[10]"
+              variant="fal"
+              size={60}
+            /> */}
+            <span className="text-gray-800 text-sm group-hover:text-white font-medium text-center leading-tight">
+              PIX
+            </span>
+          </button>
+
+
         {listMenu.map((option) => (
           <button
             key={option.IDTOTEMMENU}
@@ -59,12 +96,12 @@ export default function HomeScreen() {
               active:scale-95 transition p-6 h-32
             "
           >
-            <Icon
+            {/* <Icon
               name={option.ICONE_PATH}
               className="text-typography-gray group-hover:text-white mb-[10]"
               variant="fal"
               size={60}
-            />
+            /> */}
             <span className="text-gray-800 text-sm group-hover:text-white font-medium text-center leading-tight">
               {option.TITULO_BOTAO}
             </span>
