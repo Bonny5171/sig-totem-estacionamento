@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { checkServiceAlive, checkAuth, listMenu } from "../app/api/services/acessoService";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../app/contexts/AuthContext";
 import Image from "next/image";
 
 export default function SplashScreen({

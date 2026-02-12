@@ -1,7 +1,6 @@
-import { env } from '../../src/config/env';
+import { env } from '@/app/config/env';
 import { httpClient } from './httpClient';
 
-// Função para obter IP público
 const getPublicIp = async (): Promise<string> => {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
@@ -9,7 +8,7 @@ const getPublicIp = async (): Promise<string> => {
     return data.ip;
   } catch (error) {
     console.error('Erro ao obter IP:', error);
-    return '127.0.0.1'; // IP padrão em caso de falha
+    return '127.0.0.1';
   }
 };
 
@@ -48,13 +47,10 @@ export const checkAuth = async (): Promise<string | null> => {
       }).toString(),
     });
 
-    // Assumindo que a resposta contém uma CHAVE
-    // Você pode precisar ajustar isso baseado na estrutura real da resposta da API
     if (response && response[0].CHAVE) {
       return response[0].CHAVE;
     }
 
-    // Se não conseguir extrair a CHAVE, retorna null
     return null;
   } catch (error) {
     console.error('Erro auth:', error);
@@ -64,7 +60,7 @@ export const checkAuth = async (): Promise<string | null> => {
 
 export const listMenu = async (chave: string): Promise<boolean> => {
   try {
-    await httpClient('/api/proxy/Stones.asmx/MenuTotem', {
+    const response = await httpClient('/api/proxy/Stones.asmx/MenuTotem', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -74,7 +70,26 @@ export const listMenu = async (chave: string): Promise<boolean> => {
       }).toString(),
     });
 
-    return true;
+    return response;
+  } catch (error) {
+    console.error('Erro auth:', error);
+    return false;
+  }
+};
+
+export const checkTicket = async (ticket: string): Promise<boolean> => {
+  try {
+    const response = await httpClient('/api/proxy/Financeiro.asmx/VerificarTiqueteTotem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        TIQUETE: ticket
+      }).toString(),
+    });
+
+    return response[0];
   } catch (error) {
     console.error('Erro auth:', error);
     return false;

@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@expo/html-elements": "^0.10.1",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/pro-light-svg-icons": "^7.1.0",
+    "@fortawesome/pro-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.2.0",
     "@gluestack-ui/core": "^3.0.12",
     "@gluestack-ui/utils": "^3.0.15",
     "@gluestack/ui-next-adapter": "^3.0.3",

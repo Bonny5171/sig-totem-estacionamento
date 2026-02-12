@@ -4,7 +4,7 @@ import "./globals.css";
 
 import '@/app/globals.css';
 import { GluestackUIProvider } from '@/app/components/ui/gluestack-ui-provider';
-import { AuthProvider } from '@/contexts/AuthContext';
+import { AuthProvider } from '@/app/contexts/AuthContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

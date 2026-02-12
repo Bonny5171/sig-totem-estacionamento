@@ -132,6 +132,8 @@ module.exports = {
           white: '#FFFFFF',
           gray: '#D4D4D4',
           black: '#181718',
+          gray: '#999',
+          subTitle: '#333',
         },
         outline: {
           0: 'rgb(var(--color-outline-0)/<alpha-value>)',
@@ -167,6 +169,9 @@ module.exports = {
           info: 'rgb(var(--color-background-info)/<alpha-value>)',
           light: '#FBFBFB',
           dark: '#181719',
+          brand: '#DA1984',
+          serviceError: '#000',
+          isChecking: '#f7f7f7'
         },
         indicator: {
           primary: 'rgb(var(--color-indicator-primary)/<alpha-value>)',
@@ -200,6 +205,15 @@ module.exports = {
         'soft-2': '0px 0px 20px rgba(38, 38, 38, 0.2)',
         'soft-3': '0px 0px 30px rgba(38, 38, 38, 0.1)',
         'soft-4': '0px 0px 40px rgba(38, 38, 38, 0.1)',
+      },
+      keyframes: {
+        scan: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+    },
+      animation: {
+        scan: "scan 2s linear infinite",
       },
     },
   },

@@ -37,14 +37,12 @@ async function handler(
     body,
   });
 
-  const text = await response.text();
-
-  return new Response(text, {
-    status: response.status,
-    headers: {
-      'Content-Type': response.headers.get('content-type') || 'text/plain',
-    },
-  });
+  return new Response(response.body, {
+  status: response.status,
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8',
+  },
+});
 }
 
 export const GET = handler;
