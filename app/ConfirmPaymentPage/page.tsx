@@ -66,7 +66,7 @@ export default function ConfirmPaymentPage() {
           </div>
 
           <div className="grid grid-cols-3 gap-3 mt-6">
-            <button className="h-12 rounded-lg bg-background-brand text-white font-semibold text-base hover:bg-pink-700 transition flex items-center justify-center w-full">
+            <button onClick={() => router.push("WaitingPaymentPage")} className="h-12 rounded-lg bg-background-brand text-white font-semibold text-base hover:bg-pink-700 transition flex items-center justify-center w-full">
               <Icon
                 name={"faCreditCard"}
                 className="text-white group-hover:text-white mr-2"

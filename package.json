@@ -19,6 +19,7 @@
     "@gluestack/ui-next-adapter": "^3.0.3",
     "@legendapp/motion": "^2.5.3",
     "dom-helpers": "^5.2.1",
+    "lottie-react": "^2.4.1",
     "nativewind": "^4.2.1",
     "next": "16.1.6",
     "react": "19.2.3",
