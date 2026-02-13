@@ -5,9 +5,9 @@ const BASE_URL =
 
 async function handler(
   req: NextRequest,
-  context: { params: Promise<{ path: string[] }> } // 🔥 tipagem correta
+  context: { params: Promise<{ path: string[] }> }
 ) {
-  // 🔥 Next 15 exige await
+  
   const { path } = await context.params;
 
   const fullPath = path.join('/');

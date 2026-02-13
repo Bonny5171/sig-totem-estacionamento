@@ -30,7 +30,7 @@ export default function HomeScreen() {
             src={require("../assets/logo.png")}
             alt="Atendimento Paineiras"
             width={200}
-            height={64}
+            height={200}
             className="object-contain"
           />
         </div>

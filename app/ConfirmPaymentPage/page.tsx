@@ -20,14 +20,14 @@ export default function ConfirmPaymentPage() {
 
   return (
     <div className="min-h-screen bg-background-isChecking flex items-center justify-center px-4">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl mt-[-50px]">
         <header className="pb-6">
           <div className="flex justify-center">
             <Image
               src={require("../assets/logo.png")}
               alt="Atendimento Paineiras"
-              width={140}
-              height={45}
+              width={160}
+              height={50}
               className="object-contain"
             />
           </div>

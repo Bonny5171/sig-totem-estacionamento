@@ -50,19 +50,15 @@ export default function SplashScreen({
   if (isChecking) {
     return (
       <div className="flex min-h-screen flex-col bg-background-isChecking">
-        {/* Conteúdo principal centralizado */}
         <div className="flex-1 flex flex-col items-center justify-center text-center px-4">
-          {/* Título principal */}
           <h2 className="text-3xl font-semibold text-black mb-4">
             Iniciando atendimento
           </h2>
 
-          {/* Subtítulo */}
           <p className="text-xl text-typography-subTitle mb-10">
             Aguarde enquanto o sistema é preparado
           </p>
 
-          {/* Barra de carregamento - Width aumentada */}
           <div className="w-[40rem] h-1.5 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full rounded-full bg-background-brand"
@@ -73,7 +69,6 @@ export default function SplashScreen({
           </div>
         </div>
 
-        {/* Rodapé - apenas o texto */}
         <div className="py-8">
           <p className="text-center text-lg text-typography-gray">
             Clube Paineiras do Morumby
@@ -110,7 +105,7 @@ export default function SplashScreen({
               src={require("../../assets/logo.png")}
               alt="Atendimento Paineiras"
               width={200}
-              height={64}
+              height={200}
               className="object-contain"
             />
           </div>
